@@ -1,0 +1,477 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    user-select: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationForm{
+    width: 400px;
+    height: 300px;
+    background: #003B46;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px #333;
+    gap: 20px;
+
+    h2{
+        font-size: 24px;
+        color: #333;
+        width: 100%;
+        text-align: center;
+        background: #C4DFE6;
+        padding: 5px 0;
+    }
+    input{
+        height: 45px;
+        width: 300px;
+        outline: none;
+        padding-left: 10px;
+        font-size: 16px;
+        color: #333;
+        background: #fff;
+        border: none;
+        transition: .2s;
+    }
+    .passwordWrapper{
+        display: flex;
+        background: #C4DFE6;
+        width: 300px;
+        height: 45px;
+        .input{
+            width: 250px;
+            height: 100%;
+        }
+        .showPassword{
+            width: 50px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            border-left: 2px solid #003B46;
+        }
+    }
+    button{
+        width: 300px;
+        height: 40px;
+        font-size: 20px;
+        color: #333;
+        background: #C4DFE6;
+        border: none;
+        cursor: pointer;
+    }
+}
+.loginForm{
+    width: 400px;
+    height: 300px;
+    background: #003B46;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px #333;
+    gap: 20px;
+    h2{
+        font-size: 24px;
+        color: #333;
+        width: 100%;
+        text-align: center;
+        background: #C4DFE6;
+        padding: 5px 0;
+    }
+    .passwordWrapper{
+        display: flex;
+        background: #C4DFE6;
+        width: 300px;
+        height: 45px;
+        border: 0px solid #333;
+        transition: .2s;
+        overflow: hidden;
+        .input{
+            width: 250px;
+            height: 100%;
+        }
+        .showPassword{
+            width: 50px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            border-left: 2px solid #003B46;
+        }
+    }
+    input{
+        height: 45px;
+        width: 300px;
+        outline: none;
+        padding-left: 10px;
+        font-size: 16px;
+        color: #333;
+        background: #fff;
+        border: 0px solid #333;
+        transition: .2s;
+    }
+    button{
+        width: 300px;
+        height: 40px;
+        font-size: 20px;
+        color: #333;
+        background: #C4DFE6;
+        border: none;
+        cursor: pointer;
+    }
+}
+.changeForm{
+    cursor: pointer;
+}
+.myChat{
+    display: none;
+    border: 2px solid #003B46;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: 0 0 5px #66A5AD;
+    position: relative;
+    .emojiContainer{
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(51, 51, 51, .9);
+        top: 50%;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: -25px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        overflow-y: auto;
+        border-radius: 8px;
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: left bottom;
+        transition: 1s;
+        z-index: 3;
+        &::-webkit-scrollbar-track {
+            background: #fff;
+        }
+        &::-webkit-scrollbar {  
+            width: 10px;
+            background: #fff;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #333;
+            width: 10px;
+        }
+        .emoji{
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 5px;
+            border-radius: 8px;
+            transition: .2s;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);
+                box-shadow: 0 0 5px #333;
+            }
+        }
+    }
+    .settingsContainer{
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 50px);
+        bottom: 0;
+        background: #07575B;
+        padding-left: 25px;
+        padding-right: 20px;
+        display: flex;
+        transform: scaleY(0);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 20px;
+        gap: 50px;
+        color: #fff;
+        transform-origin: top center;
+        transition: .5s;
+        z-index: 3;
+        h2{
+            text-align: center;
+            opacity: 0;
+            transition: .5s;
+        }
+        div{
+            opacity: 0;
+            transition: .5s;
+        }
+        .set{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            .chatTheme{
+                width: 100px;
+                height: 100px;
+                box-shadow: 0 0 5px #003B46;
+                border: 5px solid #003B46;    
+                cursor: pointer;
+                transition: .2s;
+                &:hover{
+                    transform: scale(1.05);
+                }            
+            }
+            .backgrounds{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 25px;
+            }
+        }
+        input{
+            cursor: pointer;
+        }
+        .checkbox-wrapper-2 .ikxBAC {
+          appearance: none;
+          background-color: #dfe1e4;
+          border-radius: 72px;
+          border-style: none;
+          flex-shrink: 0;
+          height: 20px;
+          margin: 0;
+          position: relative;
+          width: 30px;
+        }           
+        .checkbox-wrapper-2 .ikxBAC::before {
+          bottom: -6px;
+          content: "";
+          left: -6px;
+          position: absolute;
+          right: -6px;
+          top: -6px;
+        }           
+        .checkbox-wrapper-2 .ikxBAC,
+        .checkbox-wrapper-2 .ikxBAC::after {
+          transition: all 100ms ease-out;
+        }           
+        .checkbox-wrapper-2 .ikxBAC::after {
+          background-color: #66A5AD;
+          border-radius: 50%;
+          content: "";
+          height: 14px;
+          left: 3px;
+          position: absolute;
+          top: 3px;
+          width: 14px;
+        }           
+        .checkbox-wrapper-2 input[type=checkbox] {
+          cursor: default;
+        }           
+        .checkbox-wrapper-2 .ikxBAC:hover {
+          background-color: #C4DFE6;
+          transition-duration: 0s;
+        }           
+        .checkbox-wrapper-2 .ikxBAC:checked {
+          background-color: #66A5AD;
+        }           
+        .checkbox-wrapper-2 .ikxBAC:checked::after {
+          background-color: #fff;
+          left: 13px;
+        }           
+        .checkbox-wrapper-2 :focus:not(.focus-visible) {
+          outline: 0;
+        }           
+        .checkbox-wrapper-2 .ikxBAC:checked:hover {
+          background-color: #69abb4;
+        }
+    }
+}
+.statusInfo{
+    width: 400px;
+    height: 50px;
+    background: #003B46;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    color: #fff;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    .settings{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .connectedUsers{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .online{
+            width: 15px;
+            height: 15px;
+            background: greenyellow;
+            border-radius: 50%;
+        }
+    }
+}
+.messageContainer{
+    width: 400px;
+    height: 450px;
+    background: #fff;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    .message{
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+        padding-left: 25px;
+        padding-top: 25px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        &::-webkit-scrollbar-track {
+            background: #003B46;
+        }
+        &::-webkit-scrollbar {  
+            width: 10px;
+            background: #fff;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #003B46;
+            width: 10px;
+        }
+    }
+    li{
+        display: flex;
+        list-style: none;     
+        border-radius: 10px;
+        padding: 3px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        height: auto;
+        max-width: 300px;
+        p{
+            background: #333;
+            color: #fff;
+            padding: 3px;
+            border-radius: 3px;
+            text-align: center;
+            hyphens: auto;
+            box-shadow: 0 0 5px #333;
+            flex-direction: column  ;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            span{
+                display: none;
+                align-self: flex-end;
+                font-size: 8px;
+                color: #999;
+            }
+        }
+        .userIcon{
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            justify-content: center;
+            box-shadow: 0 0 5px #333;
+            position: relative;
+            cursor: pointer;
+            .userTitle{
+                position: absolute;
+                padding: 4px;
+                // height: 10px;
+                text-align: center;
+                background: rgba(51, 51, 51, .9);
+                color: #fff;
+                top: -14px;
+                font-size: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                box-shadow: 0 0 5px #333;
+                transform-origin: center center;
+                transition: .2s;
+                transform: scale(0);
+                opacity: 0;
+            }
+            &:hover{
+                .userTitle{
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+form{
+    width: 400px;
+    height: 50px;
+    display: flex;
+    overflow: hidden;
+    input{
+        width: 275px;
+        height: 100%;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+    }
+    .openEmoji{
+        width: 50px;
+        height: 100%;
+        background: #003B46;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    button{
+        width: 75px;
+        height: 100%;
+        background: #003B46;
+        border: 2px solid #333;
+        color: #fff;
+        cursor: pointer;
+    }
+}

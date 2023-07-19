@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="icon" type="image/png" href="./images/telegram.png">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="registrationForm">
+            <h2 class="changeForm">Registration Form</h2>
+            <input class="loginInput" type="text" placeholder="user name" id="login" maxlength="16">
+            <div class="passwordWrapper">
+                <input type="password" placeholder="password" id="password">
+                <div class="showPassword"><i class="fa-regular fa-eye"></i>
+                    <div class="showPasswordIndicator"></div>
+                </div>
+            </div>
+            <button id="regBtn">Register</button>
+        </div>
+        <div class="changeFormIndicator"></div>
+        <div class="loginForm">
+            <h2 class="changeForm">Login Form</h2>
+            <input class="loginInput" type="text" placeholder="login" id="loginUserName" maxlength="16">
+            <div class="passwordWrapper">
+                <input type="password" placeholder="password" id="loginPassword">
+                <div class="showPassword"><i class="fa-regular fa-eye"></i>
+                    <div class="showPasswordIndicator"></div>
+                </div>
+            </div>
+            <button id="logBtn">Login</button>
+        </div>
+
+        <div class="myChat">
+            <div class="emojiContainer"></div>
+            <div class="settingsContainer">
+                <h2 style="align-self: center;">Chat Settings</h2>
+                <div class="set">off/on notification sound 
+                    <div class="checkbox-wrapper-2">
+                        <input type="checkbox" class="sc-gJwTLC ikxBAC" id="notifySound">
+                        <div id="notifySoundIndicator"></div>
+                    </div>
+                </div>
+                <div class="set">show sended time
+                    <div class="checkbox-wrapper-2">
+                        <input type="checkbox" class="sc-gJwTLC ikxBAC" id="showSendedTime">
+                        <div id="showSendedTimeIndicator"></div>
+                    </div>
+                </div>
+                <div class="set">
+                    set background <input type="file" id="setImage">
+                    <div class="backgrounds">
+                        <img class="chatTheme" src="https://i.pinimg.com/originals/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg" alt="">
+                        <img class="chatTheme" src="https://e1.pxfuel.com/desktop-wallpaper/425/584/desktop-wallpaper-what-should-be-the-perfect-for-whatsapp-group-chat-thumbnail.jpg" alt="">
+                        <img class="chatTheme" src="https://i.pinimg.com/736x/3d/8c/2f/3d8c2f2c82c1c9ef1e27be645cd1aa17.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="statusInfo" class="statusInfo">
+                <span>New Chat</span>
+                <div class="settings"><i class="fa-sharp fa-solid fa-gears"></i>
+                    <div class="settingsIndicator" style="width: 0; height: 0;"></div>
+                </div>
+                <span id="connectedUsers" class="connectedUsers"><div class="online"></div> <span id="userCount">1</span></span>
+            </div>
+            <div class="messageContainer">
+                <audio id="audioElement" src="./audio/notifySound.mp3"></audio>
+                <ul id="message" class="message">
+
+                </ul>
+            </div>
+            <form id="form" class="form">
+                <div class="openEmoji">
+                    <i class="fa-regular fa-face-smile"></i><div class="openEmojiIndicator" style="width: 0; height: 0;"></div>
+                </div>
+                <input type="text" placeholder="Введи повідомлення" id="message_info" class="message_info">
+                <button class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js" integrity="sha512-Z6C1p1NIexPj5MsVUunW4pg7uMX6/TT3CUVldmjXx2kpip1eZcrAnxIusDxyFIikyM9A61zOVNgvLr/TGudOQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
